@@ -200,7 +200,7 @@ jobs:
 
   run-migrations:
     docker:
-      - image: sleavely/node-awscli:14.x
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
@@ -217,12 +217,12 @@ jobs:
               curl https://kvdb.io/JKVt4YsVSDGjD6d2vnoLBb/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
             fi
      # Here's where you will add some code to rollback on failure  
-     - destroy-environment:
-          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
+    #  - destroy-environment:
+    #       workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   deploy-frontend:
     docker:
-      - image: sleavely/node-awscli:14.x
+      - image: amazon/aws-cli
     steps:
       - checkout
       - run:
