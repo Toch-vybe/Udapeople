@@ -206,8 +206,8 @@ jobs:
       - run:
           name: Configure server
           command: |
-            cat ~/cdond-c3-projectstarter/.circleci/ansible/inventory.txt
-            ansible-playbook -i ~/cdond-c3-projectstarter/.circleci/ansible/inventory.txt ~/cdond-c3-projectstarter/.circleci/ansible/configure-server.yml
+            cat ~/.circleci/ansible/inventory.txt
+            ansible-playbook -i ~/.circleci/ansible/inventory.txt ~/.circleci/ansible/configure-server.yml
       # Here's where you will add some code to rollback on failure 
       - destroy-environment
 
