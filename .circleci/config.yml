@@ -195,14 +195,17 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - install_awscli # TO INSTALL AWSCLI DEPENDENCIES
-      - install_ansible # TO INSTALL ANSIBLE DEPENDENCIES
+      - checkout
       # Add ssh keys with fingerprint
       - add_ssh_keys:
           fingerprints: ["5c:81:df:1d:da:15:28:1e:76:3a:71:7a:35:ec:9b:a5"]
       # attach workspace
       - attach_workspace:
-          at: ~/      
+          at: ~/   
+
+      - install_awscli # TO INSTALL AWSCLI DEPENDENCIES
+      - install_ansible # TO INSTALL ANSIBLE DEPENDENCIES
+      
       - run:
           name: Configure server
           command: |
