@@ -224,9 +224,12 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout 
+      - restore_cache:
+          keys: [backend-build]
       - install_awscli     
       - run:
           name: Run migrations
+          working_directory: ./backend
           command: |
             cd backend
             npm install
